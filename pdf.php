@@ -23,7 +23,8 @@ $html = '<!doctype html>
         table {
             font-family: Arial, Helvetica, sans-serif;
             width: 100%;
-            border-collapse: collapse
+            border-collapse: collapse;
+            border-spacing: 0;
         }
         td, th{
             border: 1px solid black;
@@ -59,17 +60,9 @@ while ($row = mysqli_fetch_object($result)) {
                 <td>'.$row->name.'</td>
                 <td>'.number_format($row->salary, 2).'</td>
             </tr>';
-    $total += $row->salary;
 }
 
 $html .= '</tbody>
-        <tr>
-            <th colspan="2" class="my-table">Grand Total</th>
-            <th colspan="2" class="my-table">'.number_format($total, 2).'</th>
-        </tr>
-        <tr>
-            <th colspan="3" class="my-table " id="sign">Signature</th>
-        </tr>
     </table>
 </body>
 </html>';
